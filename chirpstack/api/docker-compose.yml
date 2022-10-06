@@ -1,0 +1,44 @@
+version: "2"
+services:
+  chirpstack-api-rust:
+    build:
+      context: .
+      dockerfile: Dockerfile-rust
+    command: bash -c "cd rust && make all"
+    volumes:
+      - ./:/chirpstack/api
+  chirpstack-api-go:
+    build:
+      context: .
+      dockerfile: Dockerfile-go
+    command: bash -c "cd go && make all"
+    volumes:
+      - ./:/chirpstack/api
+  chirpstack-api-grpc-web:
+    build:
+      context: .
+      dockerfile: Dockerfile-grpc-web
+    command: bash -c "cd grpc-web && make all"
+    volumes:
+      - ./:/chirpstack/api
+  chirpstack-api-js:
+    build:
+      context: .
+      dockerfile: Dockerfile-js
+    command: bash -c "cd js && make all"
+    volumes:
+      - ./:/chirpstack/api
+  chirpstack-api-python:
+    build:
+      context: .
+      dockerfile: Dockerfile-python
+    command: bash -c "cd python && make all"
+    volumes:
+      - ./:/chirpstack/api
+  chirpstack-api-md:
+    build:
+      context: .
+      dockerfile: Dockerfile-md
+    command: bash -c "cd md && make all"
+    volumes:
+      - ./:/chirpstack/api
