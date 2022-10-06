@@ -19,6 +19,4 @@ FROM alpine:3.15.0 AS production
 RUN apk --no-cache add ca-certificates
 COPY --from=development /chirpstack-rest-api/build/chirpstack-rest-api /usr/bin/chirpstack-rest-api
 USER nobody:nogroup
-
-
-ENTRYPOINT ["/usr/bin/chirpstack-rest-api", "--server", "chirpstack:8080", "--bind", "0.0.0.0:8090","--insecure"]
+ENTRYPOINT ["/usr/bin/chirpstack-rest-api"]
